@@ -3,3 +3,6 @@ controller:
 
   config:
     use-forwarded-headers: true
+
+  service:
+    type: ClusterIP
