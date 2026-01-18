@@ -1,6 +1,7 @@
 configs:
   params:
     server.insecure: true
+    dex.server: http://argocd-dex-server:5556
   cm:
     kustomize.buildOptions: --enable-helm
-    dex.server: http://argocd-dex-server:5556
+    admin.enabled: "false"
