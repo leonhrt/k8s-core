@@ -5,7 +5,7 @@ namespace: argocd
 
 resources:
   - clusters.yaml
-  - externalsecret.yaml
+  # - externalsecret.yaml
   - ingress.yaml
   - namespace.yaml
 
