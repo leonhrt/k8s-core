@@ -18,10 +18,16 @@ vmsingle:
         requests:
           storage: 10Gi
 
-# VMAgent - disabled on main cluster, vmsingle scrapes locally
-# Enable only on secondary clusters for remote-write to this vmsingle
+# VMAgent - scrapes metrics and writes to vmsingle
 vmagent:
-  enabled: false
+  enabled: true
+  spec:
+    resources:
+      requests:
+        cpu: 50m
+        memory: 128Mi
+      limits:
+        memory: 256Mi
 
 # Grafana
 grafana:
