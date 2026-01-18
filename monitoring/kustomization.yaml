@@ -8,6 +8,6 @@ helmCharts:
     repo: https://victoriametrics.github.io/helm-charts
     version: 0.67.0
     namespace: monitoring
-    releaseName: victoria-metrics
+    releaseName: vm
     valuesFile: values.yaml
     includeCRDs: true
