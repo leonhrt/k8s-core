@@ -1,0 +1,21 @@
+---
+apiVersion: v1
+kind: ConfigMap
+
+metadata:
+  name: argocd-cm
+  namespace: argocd
+  labels:
+    app.kubernetes.io/name: argocd-cm
+    app.kubernetes.io/part-of: argocd
+data:
+  url: https://argocd.leonhrt.com
+  dex.config: |
+    connectors:
+    - type: google
+      id: google
+      name: Google
+      config:
+        clientID: 1012301263644-khk0m79knj2oa0h00gg3sd80keb0mj1b.apps.googleusercontent.com
+        clientSecret: $google-client-secret:clientSecret
+        redirectURI: https://argocd.leonhrt.com/api/dex/callback
