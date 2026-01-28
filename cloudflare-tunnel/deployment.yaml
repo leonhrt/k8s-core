@@ -22,14 +22,17 @@ spec:
       containers:
         - name: cloudflared
           image: cloudflare/cloudflared:latest
+          resources:
+            requests:
+              cpu: 100m
+              memory: 64Mi
+            limits:
+              cpu: 200m
+              memory: 256Mi
           command:
             - cloudflared
             - tunnel
-            - --protocol
-            - http2
             - --no-autoupdate
-            - --loglevel
-            - debug
             - --metrics
             - 0.0.0.0:2000
             - run

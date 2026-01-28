@@ -80,3 +80,4 @@ $RECYCLE.BIN/
 **/charts/
 .claudeignore
 CLAUDE.md
+.claude
