@@ -18,7 +18,7 @@ spec:
     spec:
       project: default
       source:
-        repoURL: https://github.com/leonhrt/oci-kubernetes
+        repoURL: https://github.com/leonhrt/k8s-core
         targetRevision: HEAD
         path: "ingress-nginx/overlays/{{cluster}}"
       destination:

@@ -23,7 +23,7 @@ spec:
       project: default
       source:
         path: argocd
-        repoURL: https://github.com/leonhrt/oci-kubernetes
+        repoURL: https://github.com/leonhrt/k8s-core
         targetRevision: HEAD
       syncPolicy:
         automated:
@@ -54,7 +54,7 @@ spec:
       project: default
       source:
         path: argocd-resources/projects
-        repoURL: https://github.com/leonhrt/oci-kubernetes
+        repoURL: https://github.com/leonhrt/k8s-core
         targetRevision: HEAD
       syncPolicy:
         automated:
@@ -83,7 +83,7 @@ spec:
       project: default
       source:
         path: argocd-resources/apps
-        repoURL: https://github.com/leonhrt/oci-kubernetes
+        repoURL: https://github.com/leonhrt/k8s-core
         targetRevision: HEAD
       syncPolicy:
         automated:
