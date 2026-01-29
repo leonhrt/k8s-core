@@ -1,20 +1,32 @@
+---
 apiVersion: argoproj.io/v1alpha1
-kind: Application
+kind: ApplicationSet
+
 metadata:
   name: cloudflare-tunnel
   namespace: argocd
 spec:
-  project: default
-  source:
-    repoURL: https://github.com/leonhrt/oci-kubernetes
-    targetRevision: HEAD
-    path: cloudflare-tunnel
-  destination:
-    name: oci-cluster
-    namespace: cloudflare-tunnel
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
-    syncOptions:
-      - CreateNamespace=true
+  syncPolicy: 
+    preserveResourcesOnDeletion: true
+  generators:
+    - list:
+        elements:
+          - cluster: oci-cluster
+  template:
+    metadata:
+      name: "cloudflare-tunnel-{{cluster}}"
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/leonhrt/oci-kubernetes
+        targetRevision: HEAD
+        path: "cloudflare-tunnel/overlays/{{cluster}}"
+      destination:
+        name: "{{cluster}}"
+        namespace: cloudflare-tunnel
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true
